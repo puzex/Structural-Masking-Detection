@@ -1,0 +1,108 @@
+{
+  "task": 2,
+  "title": "Condition B (Weak + Static Flow Checker) Baseline on PVBench",
+  "benchmark": "PVBench",
+  "condition": "B",
+  "metrics": {
+    "total_attempts": 1730,
+    "total_vulns": 185,
+    "condition_a": {
+      "accepted_count": 50,
+      "tp_count": 31,
+      "fp_count": 19,
+      "fdr": 0.38,
+      "fdr_pct": "38.0%",
+      "yield_count": 4,
+      "yield_pct": "2.2%"
+    },
+    "condition_b": {
+      "accepted_count": 30,
+      "tp_count": 13,
+      "fp_count": 17,
+      "fdr": 0.5667,
+      "fdr_pct": "56.7%",
+      "yield_count": 3,
+      "yield_pct": "1.6%",
+      "strong_oracle_pass_rate": 0.4333,
+      "strong_oracle_pass_rate_pct": "43.3%"
+    },
+    "b_vs_a": {
+      "a_accepted_b_rejected_count": 20,
+      "rejection_rate": 0.4,
+      "rejection_rate_pct": "40.0%",
+      "fdr_reduction_abs": -0.1867,
+      "fdr_reduction_rel": -0.4912,
+      "yield_loss": 1,
+      "yield_loss_pct": "25.0%"
+    },
+    "checker_coverage": {
+      "unique_vulns_with_checker": 5,
+      "total_vulns": 185,
+      "coverage_pct": "2.7%",
+      "checker_distribution": {
+        "pattern": 42,
+        "no_patch_diff": 8
+      }
+    },
+    "by_cwe": {
+      "CWE-190": {
+        "a_accepted": 40,
+        "b_accepted": 22,
+        "b_tp": 13,
+        "b_fp": 9,
+        "fdr_b": 0.4091,
+        "fdr_a": 0.225,
+        "rejection_rate": 0.45,
+        "yield_b": 3
+      },
+      "CWE-476": {
+        "a_accepted": 10,
+        "b_accepted": 8,
+        "b_tp": 0,
+        "b_fp": 8,
+        "fdr_b": 1.0,
+        "fdr_a": 1.0,
+        "rejection_rate": 0.2,
+        "yield_b": 0
+      }
+    },
+    "by_tool": {
+      "patchagent": {
+        "a_accepted": 50,
+        "b_accepted": 30,
+        "fdr_a": 0.38,
+        "fdr_b": 0.5667,
+        "yield_b": 3
+      }
+    },
+    "by_model": {
+      "claude-4-sonnet": {
+        "a_accepted": 25,
+        "b_accepted": 16,
+        "fdr_a": 0.4,
+        "fdr_b": 0.5625,
+        "yield_b": 2
+      },
+      "gpt-4.1": {
+        "a_accepted": 25,
+        "b_accepted": 14,
+        "fdr_a": 0.36,
+        "fdr_b": 0.5714,
+        "yield_b": 2
+      }
+    }
+  },
+  "methodology": {
+    "checker_primary": "patch_pattern_analysis",
+    "checker_secondary": "codeql_optional",
+    "condition_b_logic": "stage1_pass AND (checker==none OR checker.pass)",
+    "pattern_checker_approach": "AST/regex pattern matching on patch diff added lines, CWE-specific fix patterns",
+    "pass_through_cwes": [
+      "CWE-617",
+      "CWE-670",
+      "CWE-704",
+      "CWE-362"
+    ],
+    "checker_coverage_note": "CWEs 476,122,121,190,416,415,369,457 have pattern checkers (~85% of vulns)"
+  }
+}

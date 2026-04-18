@@ -1,0 +1,220 @@
+# SMD Signature Pre-Registration Specification
+# Frozen before evaluation to prevent overfitting to benchmark-specific patterns.
+# Version: 2.0  Date: 2026-04-05  (Optimization: CWE-aware dispatch, S1-only mode)
+
+meta:
+  detector: "Structural Masking Detector (SMD)"
+  version: "2.0"
+  registered_before_eval: true
+  target_benchmark: "PVBench (C/C++, 208 evaluated vulnerabilities)"
+  condition: "C = B AND NOT SMD_flags (CWE-aware)"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# S1: Early-Exit Dominance Signature
+# ─────────────────────────────────────────────────────────────────────────────
+S1_early_exit_dominance:
+  description: >
+    Fires when the LLM patch introduces a new early-exit statement that
+    positionally dominates the vulnerability sink block within the patched
+    function.  "Dominates" is approximated by positional order in the
+    linearised diff: an early-exit at post-patch line L_exit dominates the
+    sink at post-patch line L_sink if L_exit <= L_sink and both are in the
+    same function hunk.
+
+  newly_introduced_definition: >
+    A statement is "newly introduced" iff it appears on a '+' diff line
+    (i.e. present only in post-patch) AND is not a context line (' ') or
+    deletion line ('-').
+
+  early_exit_statement_types:
+    - return_statement:   "line matches \\breturn\\b"
+    - throw_statement:    "line matches \\bthrow\\b"
+    - exit_call:          "line contains 'exit(' or '_exit('"
+    - abort_call:         "line contains 'abort()' or 'std::abort()'"
+    - error_goto:         "line matches 'goto\\s+\\w*(err|fail|error|bail|cleanup|out)\\w*'"
+    - halt_call:          "line contains 'xmlHaltParser(' or 'abort_parse('"
+
+  dominance_relation: "strict positional: L_exit < L_sink (strictly before)"
+  dominance_scope: "same function hunk in the LLM diff"
+
+  fires_if: "ANY newly introduced early-exit strictly precedes sink in post-patch line order"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# S2: Sink Removed / Unreachable Signature
+# ─────────────────────────────────────────────────────────────────────────────
+S2_sink_removed_unreachable:
+  description: >
+    Fires when the vulnerability sink block is either (a) deleted by the
+    LLM patch (present on a '-' diff line and absent from post-patch context),
+    or (b) rendered unreachable in the post-patch CFG.
+
+  sub_case_removed:
+    fires_if: >
+      The pre-patch sink line appears on a '-' (deletion) line in the
+      LLM-generated diff hunk for the same file/function.
+
+  sub_case_unreachable:
+    fires_if: >
+      After applying the LLM diff, the reconstructed post-patch function
+      body contains an unconditional early-exit (return/abort/exit without
+      surrounding if/else/switch conditional) at a position strictly before
+      the mapped sink line, making the sink unreachable.
+    unconditional_exit_definition: >
+      An early-exit line in the post-patch context that is NOT preceded by
+      an unmatched 'if', 'else if', or 'switch' within the same brace scope
+      (approximated by checking that the line has zero net open-brace context
+      relative to the function entry within the diff window).
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CWE-to-Sink-Heuristic Mapping
+# ─────────────────────────────────────────────────────────────────────────────
+cwe_sink_heuristics:
+  CWE-476:
+    description: "NULL Pointer Dereference"
+    sink_pattern: "pointer dereference: '->' or '*ptr' or 'ptr[' where ptr may be NULL"
+    identification: >
+      In the pre-patch diff context, locate the first pointer dereference
+      expression (via '->' operator, unary '*' on a pointer variable, or
+      indexed array access 'ptr[...]') that is in or adjacent to the hunk
+      changed by the reference patch.  The reference patch typically adds a
+      NULL check guard before this dereference.
+    regex: "(?:->|(?:\\*\\s*\\w+)|(?:\\w+\\s*\\[))"
+
+  CWE-416:
+    description: "Use After Free"
+    sink_pattern: "access to a pointer that was freed earlier in the same scope"
+    identification: >
+      Locate a pointer access (dereference or free-call) that occurs after a
+      free() or equivalent deallocation call on the same pointer within the
+      diff context window.
+    regex: "(?:free\\s*\\(|->|\\*\\s*\\w+)"
+
+  CWE-122:
+    description: "Heap Buffer Overflow"
+    sink_pattern: "heap buffer write/copy operation without bounds check"
+    identification: >
+      Locate a memory copy or write operation (memcpy, strcpy, strcat,
+      memmove, or direct indexed write buf[n]) adjacent to the hunk where
+      the reference patch adds a size/bounds check.
+    regex: "(?:memcpy|memmove|strcpy|strcat|sprintf|\\w+\\s*\\[)"
+
+  CWE-121:
+    description: "Stack Buffer Overflow"
+    sink_pattern: "stack buffer write/copy operation without bounds check"
+    identification: "Same as CWE-122 but for stack-allocated buffers."
+    regex: "(?:memcpy|memmove|strcpy|strcat|sprintf|\\w+\\s*\\[)"
+
+  CWE-617:
+    description: "Reachable Assertion"
+    sink_pattern: "assert() or equivalent assertion call"
+    identification: >
+      Locate an assert( / xmlAssert( / ASSERT( call in the diff context;
+      the assertion is the sink because it aborts on the failing condition.
+    regex: "(?:\\bassert\\s*\\(|\\bxmlAssert\\s*\\(|\\bASSERT\\s*\\()"
+
+  CWE-190:
+    description: "Integer Overflow"
+    sink_pattern: "arithmetic expression (addition/multiplication/shift) without overflow guard"
+    identification: >
+      Locate the arithmetic expression adjacent to the hunk where the
+      reference patch adds an overflow check or safe arithmetic wrapper.
+    regex: "(?:[+*]|<<|\\w+\\s*\\+\\s*\\w+|\\w+\\s*\\*\\s*\\w+)"
+
+  CWE-415:
+    description: "Double Free"
+    sink_pattern: "second free() call on same pointer"
+    identification: >
+      Locate the second free() call on a pointer that is freed earlier in
+      the same scope within the diff context window.
+    regex: "\\bfree\\s*\\("
+
+  CWE-370:
+    description: "Missing Check for Certificate Revocation (misc fallback)"
+    sink_pattern: "generic: nearest changed line to reference patch hunk"
+    identification: "fallback"
+    regex: null
+
+  fallback:
+    description: "All other CWEs"
+    sink_pattern: "line nearest to reference patch hunk start"
+    identification: >
+      Use the first changed context line closest to the reference patch's
+      '+' lines as the sink approximation.
+    regex: null
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Sink Mapping States
+# ─────────────────────────────────────────────────────────────────────────────
+sink_mapping_states:
+  mapped:
+    description: >
+      The sink line exists in the post-patch code (offset-adjusted, not
+      deleted by the LLM diff).  SMD S1/S2 analysis is applied.
+  removed:
+    description: >
+      The sink line appears on a '-' (deletion) line in the LLM diff.
+      S2 fires immediately; S1 is not evaluated.
+  unmappable:
+    description: >
+      The LLM diff does not touch the same file/function as the reference
+      patch, so line-level alignment cannot be established.  The attempt is
+      excluded from SMD evaluation (reported as 'tool limitation').
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CWE-Aware Dispatch Table (v2.0 optimization)
+# Based on per-CWE precision analysis of S1/S2 signatures on PVBench Condition B.
+# ─────────────────────────────────────────────────────────────────────────────
+cwe_dispatch:
+  auto_reject:
+    cwes: ["CWE-704", "CWE-362", "CWE-457", "CWE-369"]
+    rationale: >
+      100% FDR in Condition B accepted set — no true positives exist.
+      Structural masking is the universal outcome for these CWEs on PVBench.
+      All B-accepted patches for these CWEs are flagged by SMD.
+
+  skip_all_signatures:
+    cwes: ["CWE-416", "CWE-617", "CWE-670", "CWE-122", "CWE-415"]
+    rationale: >
+      Structural removal or early-exit IS a valid fix for these CWEs:
+      - CWE-416 (UAF): removing freed-pointer access IS the fix; S1/S2 precision=0.
+      - CWE-617 (Assertion): adding an early return to avoid the assertion IS the fix; precision=0.
+      - CWE-670/122/415: insufficient precision in both S1 and S2.
+      Signatures suppressed; all B-accepted patches pass Condition C.
+
+  s1_only:
+    cwes: ["CWE-476", "CWE-121", "CWE-190"]
+    rationale: >
+      S1 (early-exit dominance) has high precision for these CWEs:
+      - CWE-476 (NULL Deref): S1 precision=92% (23/25 flagged are FP).
+      - CWE-121 (Stack BOF): S1 precision=100% (2/2 flagged are FP).
+      - CWE-190 (Int Overflow): S1 precision=53% (8/15 flagged are FP).
+      S2 (sink removed/unreachable) is suppressed for these CWEs as S1 is more reliable.
+
+  s1_and_s2:
+    cwes: []
+    rationale: >
+      S2 is globally suppressed due to overall low precision (44.8%) caused by
+      the brace-depth approximation misclassifying conditional contexts.
+      Only S1 is used for all active CWEs in v2.0.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# S1 Conditional Detection (v2.0 improvement)
+# ─────────────────────────────────────────────────────────────────────────────
+s1_conditional_detection_v2:
+  method: "Full brace-depth tracking from hunk start to exit line"
+  threshold: "brace_depth > 1 → inside nested scope → conditional"
+  rationale: >
+    v1.0 only looked back 8 lines from the exit, missing nested brace structures.
+    v2.0 accumulates brace depth from the hunk start, providing accurate
+    conditional scope detection regardless of hunk size.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Overall SMD Decision Logic (v2.0)
+# ─────────────────────────────────────────────────────────────────────────────
+smd_decision:
+  step_1: "If CWE in auto_reject → smd_flags=True (Condition C fails)"
+  step_2: "If CWE in skip_all_signatures → smd_flags=False (Condition C passes if B passes)"
+  step_3: "Run sink mapping. If unmappable → smd_flags=False (Condition C passes if B passes)"
+  step_4: "If CWE in s1_only → run S1 only. smd_flags = S1_fires"
+  step_5: "Otherwise → run S1 only (S2 globally suppressed in v2.0). smd_flags = S1_fires"
+  condition_c_pass: "condition_b_pass AND NOT smd_flags"

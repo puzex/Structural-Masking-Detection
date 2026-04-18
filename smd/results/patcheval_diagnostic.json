@@ -1,0 +1,324 @@
+{
+  "task": 8,
+  "benchmark": "PatchEval",
+  "diagnostics": {
+    "by_language": {
+      "Python": {
+        "total_b_accepted": 589,
+        "true_positives": 244,
+        "false_positives": 345,
+        "s1_firing_rate": 0.0050933786078098476,
+        "s2_firing_rate": 0.0899830220713073,
+        "smd_firing_rate": 0.100169779286927,
+        "smd_precision": 0.847457627118644,
+        "smd_recall": 0.14492753623188406,
+        "smd_applicable_rate": 0.28183361629881154,
+        "coverage_ceiling": 0.37681159420289856
+      },
+      "JavaScript": {
+        "total_b_accepted": 301,
+        "true_positives": 205,
+        "false_positives": 96,
+        "s1_firing_rate": 0.0,
+        "s2_firing_rate": 0.03986710963455149,
+        "smd_firing_rate": 0.07308970099667775,
+        "smd_precision": 0.2727272727272727,
+        "smd_recall": 0.0625,
+        "smd_applicable_rate": 0.38870431893687707,
+        "coverage_ceiling": 0.7916666666666666
+      },
+      "Go": {
+        "total_b_accepted": 330,
+        "true_positives": 262,
+        "false_positives": 68,
+        "s1_firing_rate": 0.0,
+        "s2_firing_rate": 0.0,
+        "smd_firing_rate": 0.18484848484848485,
+        "smd_precision": 0.819672131147541,
+        "smd_recall": 0.7352941176470589,
+        "smd_applicable_rate": 0.3333333333333333,
+        "coverage_ceiling": 0.7794117647058824
+      }
+    },
+    "by_cwe": {
+      "CWE-94": {
+        "b_accepted": 458,
+        "fps": 281,
+        "fdr_b": 0.6135371179039302,
+        "smd_flagged": 39,
+        "smd_precision": 0.23076923076923078
+      },
+      "CWE-73": {
+        "b_accepted": 183,
+        "fps": 73,
+        "fdr_b": 0.3989071038251366,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-89": {
+        "b_accepted": 153,
+        "fps": 104,
+        "fdr_b": 0.6797385620915033,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-285": {
+        "b_accepted": 84,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-601": {
+        "b_accepted": 76,
+        "fps": 13,
+        "fdr_b": 0.17105263157894737,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-918": {
+        "b_accepted": 68,
+        "fps": 29,
+        "fdr_b": 0.4264705882352941,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-276": {
+        "b_accepted": 60,
+        "fps": 49,
+        "fdr_b": 0.8166666666666667,
+        "smd_flagged": 47,
+        "smd_precision": 1.0
+      },
+      "CWE-20": {
+        "b_accepted": 60,
+        "fps": 35,
+        "fdr_b": 0.5833333333333334,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-862": {
+        "b_accepted": 43,
+        "fps": 27,
+        "fdr_b": 0.627906976744186,
+        "smd_flagged": 43,
+        "smd_precision": 0.627906976744186
+      },
+      "CWE-74": {
+        "b_accepted": 35,
+        "fps": 1,
+        "fdr_b": 0.02857142857142857,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-22": {
+        "b_accepted": 33,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-200": {
+        "b_accepted": 32,
+        "fps": 10,
+        "fdr_b": 0.3125,
+        "smd_flagged": 1,
+        "smd_precision": 0.0
+      },
+      "CWE-287": {
+        "b_accepted": 31,
+        "fps": 29,
+        "fdr_b": 0.9354838709677419,
+        "smd_flagged": 31,
+        "smd_precision": 0.9354838709677419
+      },
+      "CWE-732": {
+        "b_accepted": 25,
+        "fps": 13,
+        "fdr_b": 0.52,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-78": {
+        "b_accepted": 21,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-522": {
+        "b_accepted": 21,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-532": {
+        "b_accepted": 17,
+        "fps": 2,
+        "fdr_b": 0.11764705882352941,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-863": {
+        "b_accepted": 16,
+        "fps": 1,
+        "fdr_b": 0.0625,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-284": {
+        "b_accepted": 16,
+        "fps": 5,
+        "fdr_b": 0.3125,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-116": {
+        "b_accepted": 16,
+        "fps": 5,
+        "fdr_b": 0.3125,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-359": {
+        "b_accepted": 15,
+        "fps": 8,
+        "fdr_b": 0.5333333333333333,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-77": {
+        "b_accepted": 11,
+        "fps": 6,
+        "fdr_b": 0.5454545454545454,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-613": {
+        "b_accepted": 9,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-502": {
+        "b_accepted": 9,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-88": {
+        "b_accepted": 8,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-59": {
+        "b_accepted": 8,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-770": {
+        "b_accepted": 7,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-327": {
+        "b_accepted": 6,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-471": {
+        "b_accepted": 6,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-668": {
+        "b_accepted": 4,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-307": {
+        "b_accepted": 3,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      },
+      "CWE-444": {
+        "b_accepted": 3,
+        "fps": 0,
+        "fdr_b": 0.0,
+        "smd_flagged": 0,
+        "smd_precision": null
+      }
+    }
+  },
+  "tool_coverage": {
+    "Python": {
+      "total_b_accepted": 589,
+      "vcg_success": 261,
+      "vcg_success_rate": 0.4431239388794567,
+      "vcg_joern": 0,
+      "vcg_regex_fallback": 261,
+      "sink_mapped": 152,
+      "sink_removed": 109,
+      "sink_unmappable": 328,
+      "s1_joern": 0,
+      "s1_diff_fallback": 95,
+      "s2_joern": 0,
+      "s2_diff_fallback": 163
+    },
+    "JavaScript": {
+      "total_b_accepted": 301,
+      "vcg_success": 151,
+      "vcg_success_rate": 0.5016611295681063,
+      "vcg_joern": 0,
+      "vcg_regex_fallback": 151,
+      "sink_mapped": 63,
+      "sink_removed": 88,
+      "sink_unmappable": 150,
+      "s1_joern": 33,
+      "s1_diff_fallback": 0,
+      "s2_joern": 15,
+      "s2_diff_fallback": 74
+    },
+    "Go": {
+      "total_b_accepted": 330,
+      "vcg_success": 75,
+      "vcg_success_rate": 0.22727272727272727,
+      "vcg_joern": 0,
+      "vcg_regex_fallback": 75,
+      "sink_mapped": 40,
+      "sink_removed": 35,
+      "sink_unmappable": 255,
+      "s1_joern": 0,
+      "s1_diff_fallback": 30,
+      "s2_joern": 0,
+      "s2_diff_fallback": 49
+    }
+  },
+  "vcg_extraction": {
+    "total_cves": 230,
+    "vcg_success": 80,
+    "joern_success": 0,
+    "regex_fallback": 80,
+    "failed": 150,
+    "vcg_success_rate": 0.34782608695652173,
+    "joern_rate": 0.0,
+    "fallback_rate": 0.34782608695652173
+  }
+}

@@ -1,0 +1,3005 @@
+{
+  "deepseek-v3": {
+    "total_attempts": 1212,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 130,
+      "fp_count": 65,
+      "tp_count": 45,
+      "fdr": 0.5,
+      "fdr_pct": "50.0%",
+      "yield_count": 45,
+      "yield_rate": 0.1957
+    },
+    "condition_b": {
+      "accepted_count": 130,
+      "fp_count": 65,
+      "tp_count": 45,
+      "fdr": 0.5,
+      "fdr_pct": "50.0%",
+      "yield_count": 45,
+      "yield_rate": 0.1957,
+      "strong_oracle_pass_rate": 0.3462
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 130
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 39,
+        "b_accepted": 39,
+        "fdr_a": 0.6667,
+        "fdr_b": 0.6667,
+        "yield_a": 13,
+        "yield_b": 13,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 61,
+        "b_accepted": 61,
+        "fdr_a": 0.5082,
+        "fdr_b": 0.5082,
+        "yield_a": 16,
+        "yield_b": 16,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 30,
+        "b_accepted": 30,
+        "fdr_a": 0.2667,
+        "fdr_b": 0.2667,
+        "yield_a": 16,
+        "yield_b": 16,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-285": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-250": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-269": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-601": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-22": {
+        "a_accepted": 23,
+        "b_accepted": 23,
+        "fdr_a": 0.4348,
+        "fdr_b": 0.4348,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-918": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-94": {
+        "a_accepted": 46,
+        "b_accepted": 46,
+        "fdr_a": 0.6957,
+        "fdr_b": 0.6957,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-77": {
+        "a_accepted": 32,
+        "b_accepted": 32,
+        "fdr_a": 0.6875,
+        "fdr_b": 0.6875,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-78": {
+        "a_accepted": 34,
+        "b_accepted": 34,
+        "fdr_a": 0.6471,
+        "fdr_b": 0.6471,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-73": {
+        "a_accepted": 19,
+        "b_accepted": 19,
+        "fdr_a": 0.5263,
+        "fdr_b": 0.5263,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-89": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.7,
+        "fdr_b": 0.7,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-863": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-20": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.3333,
+        "fdr_b": 0.3333,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-276": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.8333,
+        "fdr_b": 0.8333,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-732": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-862": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-639": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-200": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-522": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-532": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.6667,
+        "fdr_b": 0.6667,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-116": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-359": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.6667,
+        "fdr_b": 0.6667,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-59": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-287": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.6228,
+        "std": 0.2646
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.6228,
+        "std": 0.2646
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 5
+    },
+    "model": "deepseek-v3",
+    "log_file": "fixed_Deepseek_V3_Default.json"
+  },
+  "deepseek-r1-0528": {
+    "total_attempts": 1900,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 211,
+      "fp_count": 93,
+      "tp_count": 91,
+      "fdr": 0.4408,
+      "fdr_pct": "44.1%",
+      "yield_count": 91,
+      "yield_rate": 0.3957
+    },
+    "condition_b": {
+      "accepted_count": 211,
+      "fp_count": 93,
+      "tp_count": 91,
+      "fdr": 0.4408,
+      "fdr_pct": "44.1%",
+      "yield_count": 91,
+      "yield_rate": 0.3957,
+      "strong_oracle_pass_rate": 0.4313
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 211
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 82,
+        "b_accepted": 82,
+        "fdr_a": 0.5732,
+        "fdr_b": 0.5732,
+        "yield_a": 35,
+        "yield_b": 35,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 83,
+        "b_accepted": 83,
+        "fdr_a": 0.4096,
+        "fdr_b": 0.4096,
+        "yield_a": 31,
+        "yield_b": 31,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 46,
+        "b_accepted": 46,
+        "fdr_a": 0.2609,
+        "fdr_b": 0.2609,
+        "yield_a": 25,
+        "yield_b": 25,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-285": {
+        "a_accepted": 11,
+        "b_accepted": 11,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-250": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-269": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-89": {
+        "a_accepted": 23,
+        "b_accepted": 23,
+        "fdr_a": 0.6957,
+        "fdr_b": 0.6957,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-862": {
+        "a_accepted": 12,
+        "b_accepted": 12,
+        "fdr_a": 0.75,
+        "fdr_b": 0.75,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-639": {
+        "a_accepted": 11,
+        "b_accepted": 11,
+        "fdr_a": 0.8182,
+        "fdr_b": 0.8182,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-918": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-601": {
+        "a_accepted": 18,
+        "b_accepted": 18,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-73": {
+        "a_accepted": 18,
+        "b_accepted": 18,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 17
+      },
+      "CWE-22": {
+        "a_accepted": 22,
+        "b_accepted": 22,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 19
+      },
+      "CWE-94": {
+        "a_accepted": 66,
+        "b_accepted": 66,
+        "fdr_a": 0.6212,
+        "fdr_b": 0.6212,
+        "rejection_rate": 0.0,
+        "yield_b": 19
+      },
+      "CWE-77": {
+        "a_accepted": 53,
+        "b_accepted": 53,
+        "fdr_a": 0.6038,
+        "fdr_b": 0.6038,
+        "rejection_rate": 0.0,
+        "yield_b": 16
+      },
+      "CWE-78": {
+        "a_accepted": 54,
+        "b_accepted": 54,
+        "fdr_a": 0.5741,
+        "fdr_b": 0.5741,
+        "rejection_rate": 0.0,
+        "yield_b": 16
+      },
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-863": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-276": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-20": {
+        "a_accepted": 19,
+        "b_accepted": 19,
+        "fdr_a": 0.7368,
+        "fdr_b": 0.7368,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-200": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-732": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-284": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-522": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-359": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-532": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-116": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-471": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-287": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-327": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.6047,
+        "std": 0.2898
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.6047,
+        "std": 0.2898
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 10
+    },
+    "model": "deepseek-r1-0528",
+    "log_file": "fixed_Deepseek_r1_0528_Default.json"
+  },
+  "doubao-1.6": {
+    "total_attempts": 1087,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 137,
+      "fp_count": 45,
+      "tp_count": 70,
+      "fdr": 0.3285,
+      "fdr_pct": "32.8%",
+      "yield_count": 70,
+      "yield_rate": 0.3043
+    },
+    "condition_b": {
+      "accepted_count": 137,
+      "fp_count": 45,
+      "tp_count": 70,
+      "fdr": 0.3285,
+      "fdr_pct": "32.8%",
+      "yield_count": 70,
+      "yield_rate": 0.3043,
+      "strong_oracle_pass_rate": 0.5109
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 137
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 53,
+        "b_accepted": 53,
+        "fdr_a": 0.4906,
+        "fdr_b": 0.4906,
+        "yield_a": 27,
+        "yield_b": 27,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 54,
+        "b_accepted": 54,
+        "fdr_a": 0.3333,
+        "fdr_b": 0.3333,
+        "yield_a": 21,
+        "yield_b": 21,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 30,
+        "b_accepted": 30,
+        "fdr_a": 0.0333,
+        "fdr_b": 0.0333,
+        "yield_a": 22,
+        "yield_b": 22,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-285": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-250": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-269": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-862": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-639": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-918": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.1667,
+        "fdr_b": 0.1667,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-601": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.2857,
+        "fdr_b": 0.2857,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-94": {
+        "a_accepted": 50,
+        "b_accepted": 50,
+        "fdr_a": 0.6,
+        "fdr_b": 0.6,
+        "rejection_rate": 0.0,
+        "yield_b": 14
+      },
+      "CWE-77": {
+        "a_accepted": 40,
+        "b_accepted": 40,
+        "fdr_a": 0.625,
+        "fdr_b": 0.625,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-78": {
+        "a_accepted": 42,
+        "b_accepted": 42,
+        "fdr_a": 0.5952,
+        "fdr_b": 0.5952,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-73": {
+        "a_accepted": 12,
+        "b_accepted": 12,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 12
+      },
+      "CWE-22": {
+        "a_accepted": 17,
+        "b_accepted": 17,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 14
+      },
+      "CWE-89": {
+        "a_accepted": 12,
+        "b_accepted": 12,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-863": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-20": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-276": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.8333,
+        "fdr_b": 0.8333,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-200": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-284": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-732": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-359": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-522": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-307": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-532": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-116": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-59": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.4095,
+        "std": 0.2175
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.4095,
+        "std": 0.2175
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 5
+    },
+    "model": "doubao-1.6",
+    "log_file": "fixed_Doubao_1_6_Default.json"
+  },
+  "doubao-1.6-thinking": {
+    "total_attempts": 1125,
+    "total_cves": 228,
+    "condition_a": {
+      "accepted_count": 141,
+      "fp_count": 60,
+      "tp_count": 58,
+      "fdr": 0.4255,
+      "fdr_pct": "42.6%",
+      "yield_count": 58,
+      "yield_rate": 0.2544
+    },
+    "condition_b": {
+      "accepted_count": 141,
+      "fp_count": 60,
+      "tp_count": 58,
+      "fdr": 0.4255,
+      "fdr_pct": "42.6%",
+      "yield_count": 58,
+      "yield_rate": 0.2544,
+      "strong_oracle_pass_rate": 0.4113
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 141
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 47,
+        "b_accepted": 47,
+        "fdr_a": 0.5745,
+        "fdr_b": 0.5745,
+        "yield_a": 20,
+        "yield_b": 20,
+        "total_cves": 69
+      },
+      "JavaScript": {
+        "a_accepted": 62,
+        "b_accepted": 62,
+        "fdr_a": 0.4516,
+        "fdr_b": 0.4516,
+        "yield_a": 18,
+        "yield_b": 18,
+        "total_cves": 76
+      },
+      "Go": {
+        "a_accepted": 32,
+        "b_accepted": 32,
+        "fdr_a": 0.1562,
+        "fdr_b": 0.1562,
+        "yield_a": 20,
+        "yield_b": 20,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-285": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-250": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-269": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-918": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-22": {
+        "a_accepted": 25,
+        "b_accepted": 25,
+        "fdr_a": 0.36,
+        "fdr_b": 0.36,
+        "rejection_rate": 0.0,
+        "yield_b": 12
+      },
+      "CWE-601": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.25,
+        "fdr_b": 0.25,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-94": {
+        "a_accepted": 41,
+        "b_accepted": 41,
+        "fdr_a": 0.6098,
+        "fdr_b": 0.6098,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-77": {
+        "a_accepted": 38,
+        "b_accepted": 38,
+        "fdr_a": 0.6579,
+        "fdr_b": 0.6579,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-78": {
+        "a_accepted": 39,
+        "b_accepted": 39,
+        "fdr_a": 0.641,
+        "fdr_b": 0.641,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-73": {
+        "a_accepted": 20,
+        "b_accepted": 20,
+        "fdr_a": 0.45,
+        "fdr_b": 0.45,
+        "rejection_rate": 0.0,
+        "yield_b": 10
+      },
+      "CWE-862": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-639": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-89": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.1429,
+        "fdr_b": 0.1429,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-863": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-20": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.4286,
+        "fdr_b": 0.4286,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-276": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.8,
+        "fdr_b": 0.8,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-200": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-732": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-359": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-284": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.8333,
+        "fdr_b": 0.8333,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-522": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-307": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-532": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-116": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-59": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-287": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.4796,
+        "std": 0.2047
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.4796,
+        "std": 0.2047
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 5
+    },
+    "model": "doubao-1.6-thinking",
+    "log_file": "fixed_Doubao_1_6_thinking_Default.json"
+  },
+  "gemini-2.5-pro": {
+    "total_attempts": 1580,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 278,
+      "fp_count": 143,
+      "tp_count": 105,
+      "fdr": 0.5144,
+      "fdr_pct": "51.4%",
+      "yield_count": 105,
+      "yield_rate": 0.4565
+    },
+    "condition_b": {
+      "accepted_count": 278,
+      "fp_count": 143,
+      "tp_count": 105,
+      "fdr": 0.5144,
+      "fdr_pct": "51.4%",
+      "yield_count": 105,
+      "yield_rate": 0.4565,
+      "strong_oracle_pass_rate": 0.3777
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 278
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 121,
+        "b_accepted": 121,
+        "fdr_a": 0.6694,
+        "fdr_b": 0.6694,
+        "yield_a": 40,
+        "yield_b": 40,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 97,
+        "b_accepted": 97,
+        "fdr_a": 0.4639,
+        "fdr_b": 0.4639,
+        "yield_a": 33,
+        "yield_b": 33,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 60,
+        "b_accepted": 60,
+        "fdr_a": 0.2833,
+        "fdr_b": 0.2833,
+        "yield_a": 32,
+        "yield_b": 32,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-89": {
+        "a_accepted": 38,
+        "b_accepted": 38,
+        "fdr_a": 0.8158,
+        "fdr_b": 0.8158,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-862": {
+        "a_accepted": 13,
+        "b_accepted": 13,
+        "fdr_a": 0.8462,
+        "fdr_b": 0.8462,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-639": {
+        "a_accepted": 12,
+        "b_accepted": 12,
+        "fdr_a": 0.9167,
+        "fdr_b": 0.9167,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-285": {
+        "a_accepted": 11,
+        "b_accepted": 11,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-250": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-269": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-73": {
+        "a_accepted": 46,
+        "b_accepted": 46,
+        "fdr_a": 0.6087,
+        "fdr_b": 0.6087,
+        "rejection_rate": 0.0,
+        "yield_b": 16
+      },
+      "CWE-22": {
+        "a_accepted": 52,
+        "b_accepted": 52,
+        "fdr_a": 0.5385,
+        "fdr_b": 0.5385,
+        "rejection_rate": 0.0,
+        "yield_b": 18
+      },
+      "CWE-918": {
+        "a_accepted": 13,
+        "b_accepted": 13,
+        "fdr_a": 0.6923,
+        "fdr_b": 0.6923,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-601": {
+        "a_accepted": 13,
+        "b_accepted": 13,
+        "fdr_a": 0.0769,
+        "fdr_b": 0.0769,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-94": {
+        "a_accepted": 57,
+        "b_accepted": 57,
+        "fdr_a": 0.4912,
+        "fdr_b": 0.4912,
+        "rejection_rate": 0.0,
+        "yield_b": 23
+      },
+      "CWE-77": {
+        "a_accepted": 47,
+        "b_accepted": 47,
+        "fdr_a": 0.4468,
+        "fdr_b": 0.4468,
+        "rejection_rate": 0.0,
+        "yield_b": 21
+      },
+      "CWE-78": {
+        "a_accepted": 45,
+        "b_accepted": 45,
+        "fdr_a": 0.4,
+        "fdr_b": 0.4,
+        "rejection_rate": 0.0,
+        "yield_b": 20
+      },
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-863": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.1667,
+        "fdr_b": 0.1667,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-20": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.1111,
+        "fdr_b": 0.1111,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-276": {
+        "a_accepted": 11,
+        "b_accepted": 11,
+        "fdr_a": 0.9091,
+        "fdr_b": 0.9091,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-200": {
+        "a_accepted": 14,
+        "b_accepted": 14,
+        "fdr_a": 0.7143,
+        "fdr_b": 0.7143,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-522": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-359": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-732": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.9,
+        "fdr_b": 0.9,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-668": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-284": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-307": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-532": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-116": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-59": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-471": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-327": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-287": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.6566,
+        "std": 0.3012
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.6566,
+        "std": 0.3012
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 10
+    },
+    "model": "gemini-2.5-pro",
+    "log_file": "fixed_gemini_2_5_pro_Default.json"
+  },
+  "gpt-4.1": {
+    "total_attempts": 2056,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 236,
+      "fp_count": 143,
+      "tp_count": 70,
+      "fdr": 0.6059,
+      "fdr_pct": "60.6%",
+      "yield_count": 70,
+      "yield_rate": 0.3043
+    },
+    "condition_b": {
+      "accepted_count": 236,
+      "fp_count": 143,
+      "tp_count": 70,
+      "fdr": 0.6059,
+      "fdr_pct": "60.6%",
+      "yield_count": 70,
+      "yield_rate": 0.3043,
+      "strong_oracle_pass_rate": 0.2966
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 236
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 109,
+        "b_accepted": 109,
+        "fdr_a": 0.7248,
+        "fdr_b": 0.7248,
+        "yield_a": 30,
+        "yield_b": 30,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 83,
+        "b_accepted": 83,
+        "fdr_a": 0.5904,
+        "fdr_b": 0.5904,
+        "yield_a": 21,
+        "yield_b": 21,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 44,
+        "b_accepted": 44,
+        "fdr_a": 0.3409,
+        "fdr_b": 0.3409,
+        "yield_a": 19,
+        "yield_b": 19,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-89": {
+        "a_accepted": 35,
+        "b_accepted": 35,
+        "fdr_a": 0.8857,
+        "fdr_b": 0.8857,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-285": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-250": {
+        "a_accepted": 8,
+        "b_accepted": 8,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-269": {
+        "a_accepted": 8,
+        "b_accepted": 8,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-862": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.6667,
+        "fdr_b": 0.6667,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-639": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.8,
+        "fdr_b": 0.8,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-918": {
+        "a_accepted": 14,
+        "b_accepted": 14,
+        "fdr_a": 0.7143,
+        "fdr_b": 0.7143,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-601": {
+        "a_accepted": 8,
+        "b_accepted": 8,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-73": {
+        "a_accepted": 15,
+        "b_accepted": 15,
+        "fdr_a": 0.2667,
+        "fdr_b": 0.2667,
+        "rejection_rate": 0.0,
+        "yield_b": 10
+      },
+      "CWE-22": {
+        "a_accepted": 19,
+        "b_accepted": 19,
+        "fdr_a": 0.2105,
+        "fdr_b": 0.2105,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-94": {
+        "a_accepted": 82,
+        "b_accepted": 82,
+        "fdr_a": 0.7683,
+        "fdr_b": 0.7683,
+        "rejection_rate": 0.0,
+        "yield_b": 14
+      },
+      "CWE-77": {
+        "a_accepted": 70,
+        "b_accepted": 70,
+        "fdr_a": 0.7857,
+        "fdr_b": 0.7857,
+        "rejection_rate": 0.0,
+        "yield_b": 12
+      },
+      "CWE-78": {
+        "a_accepted": 70,
+        "b_accepted": 70,
+        "fdr_a": 0.7571,
+        "fdr_b": 0.7571,
+        "rejection_rate": 0.0,
+        "yield_b": 12
+      },
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-863": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-20": {
+        "a_accepted": 13,
+        "b_accepted": 13,
+        "fdr_a": 0.6923,
+        "fdr_b": 0.6923,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-276": {
+        "a_accepted": 11,
+        "b_accepted": 11,
+        "fdr_a": 0.9091,
+        "fdr_b": 0.9091,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-668": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-732": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-284": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-522": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-200": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-359": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-532": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-471": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-444": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-327": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-287": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.7406,
+        "std": 0.2958
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.7406,
+        "std": 0.2958
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 10
+    },
+    "model": "gpt-4.1",
+    "log_file": "fixed_gpt_4_1_2025_04_14_Default.json"
+  },
+  "kimi-k2": {
+    "total_attempts": 1181,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 143,
+      "fp_count": 54,
+      "tp_count": 66,
+      "fdr": 0.3776,
+      "fdr_pct": "37.8%",
+      "yield_count": 66,
+      "yield_rate": 0.287
+    },
+    "condition_b": {
+      "accepted_count": 143,
+      "fp_count": 54,
+      "tp_count": 66,
+      "fdr": 0.3776,
+      "fdr_pct": "37.8%",
+      "yield_count": 66,
+      "yield_rate": 0.287,
+      "strong_oracle_pass_rate": 0.4615
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 143
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 54,
+        "b_accepted": 54,
+        "fdr_a": 0.5185,
+        "fdr_b": 0.5185,
+        "yield_a": 25,
+        "yield_b": 25,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 63,
+        "b_accepted": 63,
+        "fdr_a": 0.4127,
+        "fdr_b": 0.4127,
+        "yield_a": 22,
+        "yield_b": 22,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 26,
+        "b_accepted": 26,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "yield_a": 19,
+        "yield_b": 19,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-285": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-250": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-269": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-601": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-918": {
+        "a_accepted": 8,
+        "b_accepted": 8,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-73": {
+        "a_accepted": 16,
+        "b_accepted": 16,
+        "fdr_a": 0.375,
+        "fdr_b": 0.375,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-22": {
+        "a_accepted": 20,
+        "b_accepted": 20,
+        "fdr_a": 0.3,
+        "fdr_b": 0.3,
+        "rejection_rate": 0.0,
+        "yield_b": 10
+      },
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-94": {
+        "a_accepted": 44,
+        "b_accepted": 44,
+        "fdr_a": 0.5682,
+        "fdr_b": 0.5682,
+        "rejection_rate": 0.0,
+        "yield_b": 13
+      },
+      "CWE-77": {
+        "a_accepted": 35,
+        "b_accepted": 35,
+        "fdr_a": 0.5714,
+        "fdr_b": 0.5714,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-78": {
+        "a_accepted": 36,
+        "b_accepted": 36,
+        "fdr_a": 0.5556,
+        "fdr_b": 0.5556,
+        "rejection_rate": 0.0,
+        "yield_b": 10
+      },
+      "CWE-89": {
+        "a_accepted": 12,
+        "b_accepted": 12,
+        "fdr_a": 0.5833,
+        "fdr_b": 0.5833,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-862": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-639": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-863": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-20": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-276": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.8333,
+        "fdr_b": 0.8333,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-200": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-284": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-359": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-732": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-522": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-532": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-74": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.3333,
+        "fdr_b": 0.3333,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-444": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-116": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-471": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-327": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-59": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.4518,
+        "std": 0.257
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.4518,
+        "std": 0.257
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 5
+    },
+    "model": "kimi-k2",
+    "log_file": "fixed_kimi_k2_Default.json"
+  },
+  "qwen3-coder-480b": {
+    "total_attempts": 1147,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 125,
+      "fp_count": 46,
+      "tp_count": 61,
+      "fdr": 0.368,
+      "fdr_pct": "36.8%",
+      "yield_count": 61,
+      "yield_rate": 0.2652
+    },
+    "condition_b": {
+      "accepted_count": 125,
+      "fp_count": 46,
+      "tp_count": 61,
+      "fdr": 0.368,
+      "fdr_pct": "36.8%",
+      "yield_count": 61,
+      "yield_rate": 0.2652,
+      "strong_oracle_pass_rate": 0.488
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 125
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 41,
+        "b_accepted": 41,
+        "fdr_a": 0.3902,
+        "fdr_b": 0.3902,
+        "yield_a": 24,
+        "yield_b": 24,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 56,
+        "b_accepted": 56,
+        "fdr_a": 0.4464,
+        "fdr_b": 0.4464,
+        "yield_a": 19,
+        "yield_b": 19,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 28,
+        "b_accepted": 28,
+        "fdr_a": 0.1786,
+        "fdr_b": 0.1786,
+        "yield_a": 18,
+        "yield_b": 18,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-285": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-250": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-269": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-601": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-918": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.5714,
+        "fdr_b": 0.5714,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-73": {
+        "a_accepted": 21,
+        "b_accepted": 21,
+        "fdr_a": 0.5238,
+        "fdr_b": 0.5238,
+        "rejection_rate": 0.0,
+        "yield_b": 9
+      },
+      "CWE-22": {
+        "a_accepted": 25,
+        "b_accepted": 25,
+        "fdr_a": 0.44,
+        "fdr_b": 0.44,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-94": {
+        "a_accepted": 31,
+        "b_accepted": 31,
+        "fdr_a": 0.5161,
+        "fdr_b": 0.5161,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-77": {
+        "a_accepted": 21,
+        "b_accepted": 21,
+        "fdr_a": 0.5238,
+        "fdr_b": 0.5238,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-78": {
+        "a_accepted": 23,
+        "b_accepted": 23,
+        "fdr_a": 0.4783,
+        "fdr_b": 0.4783,
+        "rejection_rate": 0.0,
+        "yield_b": 8
+      },
+      "CWE-862": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-639": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-89": {
+        "a_accepted": 8,
+        "b_accepted": 8,
+        "fdr_a": 0.375,
+        "fdr_b": 0.375,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-863": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 3
+      },
+      "CWE-20": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.25,
+        "fdr_b": 0.25,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-276": {
+        "a_accepted": 7,
+        "b_accepted": 7,
+        "fdr_a": 0.7143,
+        "fdr_b": 0.7143,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-200": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-284": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-732": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-287": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-522": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-359": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-532": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-116": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-444": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-471": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-327": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-59": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.4652,
+        "std": 0.2366
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.4652,
+        "std": 0.2366
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 5
+    },
+    "model": "qwen3-coder-480b",
+    "log_file": "fixed_qwen3_coder_480b_a35b_instruct_Default.json"
+  },
+  "qwen3-max": {
+    "total_attempts": 1150,
+    "total_cves": 230,
+    "condition_a": {
+      "accepted_count": 136,
+      "fp_count": 42,
+      "tp_count": 69,
+      "fdr": 0.3088,
+      "fdr_pct": "30.9%",
+      "yield_count": 69,
+      "yield_rate": 0.3
+    },
+    "condition_b": {
+      "accepted_count": 136,
+      "fp_count": 42,
+      "tp_count": 69,
+      "fdr": 0.3088,
+      "fdr_pct": "30.9%",
+      "yield_count": 69,
+      "yield_rate": 0.3,
+      "strong_oracle_pass_rate": 0.5074
+    },
+    "b_vs_a": {
+      "rejection_count": 0,
+      "rejection_rate": 0.0,
+      "rejection_rate_pct": "0.0%",
+      "fdr_delta_abs": 0.0,
+      "fdr_delta_rel": 0.0,
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "checker_distribution": {
+      "passthrough": 136
+    },
+    "by_language": {
+      "Python": {
+        "a_accepted": 43,
+        "b_accepted": 43,
+        "fdr_a": 0.3488,
+        "fdr_b": 0.3488,
+        "yield_a": 27,
+        "yield_b": 27,
+        "total_cves": 70
+      },
+      "JavaScript": {
+        "a_accepted": 59,
+        "b_accepted": 59,
+        "fdr_a": 0.3729,
+        "fdr_b": 0.3729,
+        "yield_a": 22,
+        "yield_b": 22,
+        "total_cves": 77
+      },
+      "Go": {
+        "a_accepted": 34,
+        "b_accepted": 34,
+        "fdr_a": 0.1471,
+        "fdr_b": 0.1471,
+        "yield_a": 20,
+        "yield_b": 20,
+        "total_cves": 83
+      }
+    },
+    "by_cwe": {
+      "CWE-285": {
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-250": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-269": {
+        "a_accepted": 9,
+        "b_accepted": 9,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 7
+      },
+      "CWE-601": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-918": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.1667,
+        "fdr_b": 0.1667,
+        "rejection_rate": 0.0,
+        "yield_b": 5
+      },
+      "CWE-73": {
+        "a_accepted": 16,
+        "b_accepted": 16,
+        "fdr_a": 0.3125,
+        "fdr_b": 0.3125,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-22": {
+        "a_accepted": 20,
+        "b_accepted": 20,
+        "fdr_a": 0.25,
+        "fdr_b": 0.25,
+        "rejection_rate": 0.0,
+        "yield_b": 13
+      },
+      "CWE-94": {
+        "a_accepted": 41,
+        "b_accepted": 41,
+        "fdr_a": 0.5122,
+        "fdr_b": 0.5122,
+        "rejection_rate": 0.0,
+        "yield_b": 14
+      },
+      "CWE-77": {
+        "a_accepted": 31,
+        "b_accepted": 31,
+        "fdr_a": 0.5161,
+        "fdr_b": 0.5161,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-78": {
+        "a_accepted": 34,
+        "b_accepted": 34,
+        "fdr_a": 0.4706,
+        "fdr_b": 0.4706,
+        "rejection_rate": 0.0,
+        "yield_b": 11
+      },
+      "CWE-770": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-89": {
+        "a_accepted": 8,
+        "b_accepted": 8,
+        "fdr_a": 0.25,
+        "fdr_b": 0.25,
+        "rejection_rate": 0.0,
+        "yield_b": 6
+      },
+      "CWE-863": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-20": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 0.6,
+        "fdr_b": 0.6,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-276": {
+        "a_accepted": 6,
+        "b_accepted": 6,
+        "fdr_a": 0.8333,
+        "fdr_b": 0.8333,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-200": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-862": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-732": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-668": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-284": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-359": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-613": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-287": {
+        "a_accepted": 5,
+        "b_accepted": 5,
+        "fdr_a": 1.0,
+        "fdr_b": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-522": {
+        "a_accepted": 3,
+        "b_accepted": 3,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 2
+      },
+      "CWE-639": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-74": {
+        "a_accepted": 4,
+        "b_accepted": 4,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 4
+      },
+      "CWE-532": {
+        "a_accepted": 2,
+        "b_accepted": 2,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-116": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-471": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-327": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-502": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-88": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-59": {
+        "a_accepted": 1,
+        "b_accepted": 1,
+        "fdr_a": 0.0,
+        "fdr_b": 0.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      }
+    },
+    "epoch_stats": {
+      "fdr_a_across_epochs": {
+        "mean": 0.3652,
+        "std": 0.1614
+      },
+      "fdr_b_across_epochs": {
+        "mean": 0.3652,
+        "std": 0.1614
+      },
+      "rejection_rate_across_epochs": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "n_epochs": 5
+    },
+    "model": "qwen3-max",
+    "log_file": "fixed_qwen3_max_Default.json"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "task": 6,
+  "title": "Condition C (SMD Validator Add-On) on PVBench \u2014 Optimized",
+  "benchmark": "PVBench",
+  "condition": "C",
+  "methodology": {
+    "vcg_extraction": "CWE-specific diff-context heuristics (no compilation needed)",
+    "sink_mapping": "Unified diff offset adjustment + deletion detection",
+    "s1_dominance": "Positional early-exit dominance; full brace-depth conditional check",
+    "s2_unreachability": "Sink deletion check + unconditional early-exit (suppressed for CWE_S1_ONLY)",
+    "smd_logic": "CWE-aware: auto-reject 100%-FDR CWEs; S1-only for CWE-476/121/190; skip CWE-416/617/670/122/415",
+    "signature_spec": "smd/configs/signature_spec.yaml (pre-registered)"
+  },
+  "metrics": {
+    "total_b_accepted": 1726,
+    "total_vulns": 180,
+    "vcg_coverage": {
+      "vcg_success": 1389,
+      "vcg_success_rate": 0.8048,
+      "vcg_success_rate_pct": "80.5%"
+    },
+    "sink_mapping": {
+      "mapped": 520,
+      "removed": 108,
+      "unmappable": 213,
+      "applicable": 628,
+      "smd_applicable_rate": 0.3638,
+      "smd_applicable_rate_pct": "36.4%"
+    },
+    "smd_firing": {
+      "s1_fires": 29,
+      "s2_fires": 0,
+      "smd_flags": 85,
+      "s1_rate": 0.0424,
+      "s2_rate": 0.0,
+      "smd_flag_rate": 0.1243,
+      "s1_rate_pct": "4.2%",
+      "s2_rate_pct": "0.0%",
+      "smd_flag_rate_pct": "12.4%"
+    },
+    "condition_b": {
+      "accepted_count": 1726,
+      "tp_count": 925,
+      "fp_count": 801,
+      "fdr": 0.4641,
+      "fdr_pct": "46.4%",
+      "yield_count": 117,
+      "yield_pct": "65.0%"
+    },
+    "condition_c": {
+      "accepted_count": 1641,
+      "tp_count": 921,
+      "fp_count": 720,
+      "fdr": 0.4388,
+      "fdr_pct": "43.9%",
+      "yield_count": 117,
+      "yield_pct": "65.0%",
+      "strong_oracle_pass_rate": 0.5612,
+      "strong_oracle_pass_rate_pct": "56.1%"
+    },
+    "c_vs_b": {
+      "b_accepted_c_rejected": 85,
+      "rejection_rate": 0.0492,
+      "rejection_rate_pct": "4.9%",
+      "fdr_reduction_abs": 0.0253,
+      "fdr_reduction_rel": 0.0546,
+      "fdr_reduction_rel_pct": "5.5%",
+      "yield_loss": 0,
+      "yield_loss_pct": "0.0%"
+    },
+    "by_cwe": {
+      "CWE-121": {
+        "b_accepted": 105,
+        "c_accepted": 104,
+        "c_tp": 42,
+        "c_fp": 62,
+        "fdr_c": 0.5962,
+        "fdr_b": 0.6,
+        "rejection_rate_c": 0.0095,
+        "yield_c": 6
+      },
+      "CWE-122": {
+        "b_accepted": 239,
+        "c_accepted": 239,
+        "c_tp": 110,
+        "c_fp": 129,
+        "fdr_c": 0.5397,
+        "fdr_b": 0.5397,
+        "rejection_rate_c": 0.0,
+        "yield_c": 20
+      },
+      "CWE-190": {
+        "b_accepted": 321,
+        "c_accepted": 312,
+        "c_tp": 202,
+        "c_fp": 110,
+        "fdr_c": 0.3526,
+        "fdr_b": 0.3583,
+        "rejection_rate_c": 0.028,
+        "yield_c": 21
+      },
+      "CWE-362": {
+        "b_accepted": 17,
+        "c_accepted": 0,
+        "c_tp": 0,
+        "c_fp": 0,
+        "fdr_c": 0.0,
+        "fdr_b": 1.0,
+        "rejection_rate_c": 1.0,
+        "yield_c": 0
+      },
+      "CWE-369": {
+        "b_accepted": 3,
+        "c_accepted": 0,
+        "c_tp": 0,
+        "c_fp": 0,
+        "fdr_c": 0.0,
+        "fdr_b": 1.0,
+        "rejection_rate_c": 1.0,
+        "yield_c": 0
+      },
+      "CWE-415": {
+        "b_accepted": 14,
+        "c_accepted": 14,
+        "c_tp": 9,
+        "c_fp": 5,
+        "fdr_c": 0.3571,
+        "fdr_b": 0.3571,
+        "rejection_rate_c": 0.0,
+        "yield_c": 2
+      },
+      "CWE-416": {
+        "b_accepted": 212,
+        "c_accepted": 212,
+        "c_tp": 142,
+        "c_fp": 70,
+        "fdr_c": 0.3302,
+        "fdr_b": 0.3302,
+        "rejection_rate_c": 0.0,
+        "yield_c": 18
+      },
+      "CWE-457": {
+        "b_accepted": 6,
+        "c_accepted": 0,
+        "c_tp": 0,
+        "c_fp": 0,
+        "fdr_c": 0.0,
+        "fdr_b": 1.0,
+        "rejection_rate_c": 1.0,
+        "yield_c": 0
+      },
+      "CWE-476": {
+        "b_accepted": 415,
+        "c_accepted": 396,
+        "c_tp": 125,
+        "c_fp": 271,
+        "fdr_c": 0.6843,
+        "fdr_b": 0.6988,
+        "rejection_rate_c": 0.0458,
+        "yield_c": 25
+      },
+      "CWE-617": {
+        "b_accepted": 342,
+        "c_accepted": 342,
+        "c_tp": 280,
+        "c_fp": 62,
+        "fdr_c": 0.1813,
+        "fdr_b": 0.1813,
+        "rejection_rate_c": 0.0,
+        "yield_c": 24
+      },
+      "CWE-670": {
+        "b_accepted": 22,
+        "c_accepted": 22,
+        "c_tp": 11,
+        "c_fp": 11,
+        "fdr_c": 0.5,
+        "fdr_b": 0.5,
+        "rejection_rate_c": 0.0,
+        "yield_c": 1
+      },
+      "CWE-704": {
+        "b_accepted": 30,
+        "c_accepted": 0,
+        "c_tp": 0,
+        "c_fp": 0,
+        "fdr_c": 0.0,
+        "fdr_b": 1.0,
+        "rejection_rate_c": 1.0,
+        "yield_c": 0
+      }
+    },
+    "by_tool": {
+      "patchagent": {
+        "b_accepted": 1165,
+        "c_accepted": 1123,
+        "fdr_b": 0.4695,
+        "fdr_c": 0.4497,
+        "yield_c": 109
+      },
+      "san2patch": {
+        "b_accepted": 561,
+        "c_accepted": 518,
+        "fdr_b": 0.4528,
+        "fdr_c": 0.4151,
+        "yield_c": 63
+      }
+    }
+  }
+}

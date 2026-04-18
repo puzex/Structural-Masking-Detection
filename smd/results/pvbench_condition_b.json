@@ -1,0 +1,216 @@
+{
+  "task": 2,
+  "title": "Condition B (Weak + Static Flow Checker) Baseline on PVBench",
+  "benchmark": "PVBench",
+  "condition": "B",
+  "metrics": {
+    "total_attempts": 4160,
+    "total_vulns": 208,
+    "condition_a": {
+      "accepted_count": 2480,
+      "tp_count": 1423,
+      "fp_count": 1057,
+      "fdr": 0.4262,
+      "fdr_pct": "42.6%",
+      "yield_count": 131,
+      "yield_pct": "63.0%"
+    },
+    "condition_b": {
+      "accepted_count": 1726,
+      "tp_count": 925,
+      "fp_count": 801,
+      "fdr": 0.4641,
+      "fdr_pct": "46.4%",
+      "yield_count": 117,
+      "yield_pct": "56.2%",
+      "strong_oracle_pass_rate": 0.5359,
+      "strong_oracle_pass_rate_pct": "53.6%"
+    },
+    "b_vs_a": {
+      "a_accepted_b_rejected_count": 754,
+      "rejection_rate": 0.304,
+      "rejection_rate_pct": "30.4%",
+      "fdr_reduction_abs": -0.0379,
+      "fdr_reduction_rel": -0.0889,
+      "yield_loss": 14,
+      "yield_loss_pct": "10.7%"
+    },
+    "checker_coverage": {
+      "unique_vulns_with_checker": 146,
+      "total_vulns": 208,
+      "coverage_pct": "70.2%",
+      "checker_distribution": {
+        "pattern": 1660,
+        "no_patch_diff": 485,
+        "none": 335
+      }
+    },
+    "by_cwe": {
+      "CWE-121": {
+        "a_accepted": 182,
+        "b_accepted": 105,
+        "b_tp": 42,
+        "b_fp": 63,
+        "fdr_b": 0.6,
+        "fdr_a": 0.5934,
+        "rejection_rate": 0.4231,
+        "yield_b": 6
+      },
+      "CWE-122": {
+        "a_accepted": 408,
+        "b_accepted": 239,
+        "b_tp": 110,
+        "b_fp": 129,
+        "fdr_b": 0.5397,
+        "fdr_a": 0.4657,
+        "rejection_rate": 0.4142,
+        "yield_b": 20
+      },
+      "CWE-190": {
+        "a_accepted": 435,
+        "b_accepted": 321,
+        "b_tp": 206,
+        "b_fp": 115,
+        "fdr_b": 0.3583,
+        "fdr_a": 0.3402,
+        "rejection_rate": 0.2621,
+        "yield_b": 21
+      },
+      "CWE-362": {
+        "a_accepted": 17,
+        "b_accepted": 17,
+        "b_tp": 0,
+        "b_fp": 17,
+        "fdr_b": 1.0,
+        "fdr_a": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      },
+      "CWE-369": {
+        "a_accepted": 20,
+        "b_accepted": 3,
+        "b_tp": 0,
+        "b_fp": 3,
+        "fdr_b": 1.0,
+        "fdr_a": 0.45,
+        "rejection_rate": 0.85,
+        "yield_b": 0
+      },
+      "CWE-415": {
+        "a_accepted": 27,
+        "b_accepted": 14,
+        "b_tp": 9,
+        "b_fp": 5,
+        "fdr_b": 0.3571,
+        "fdr_a": 0.1852,
+        "rejection_rate": 0.4815,
+        "yield_b": 2
+      },
+      "CWE-416": {
+        "a_accepted": 328,
+        "b_accepted": 212,
+        "b_tp": 142,
+        "b_fp": 70,
+        "fdr_b": 0.3302,
+        "fdr_a": 0.3201,
+        "rejection_rate": 0.3537,
+        "yield_b": 18
+      },
+      "CWE-457": {
+        "a_accepted": 10,
+        "b_accepted": 6,
+        "b_tp": 0,
+        "b_fp": 6,
+        "fdr_b": 1.0,
+        "fdr_a": 1.0,
+        "rejection_rate": 0.4,
+        "yield_b": 0
+      },
+      "CWE-476": {
+        "a_accepted": 659,
+        "b_accepted": 415,
+        "b_tp": 125,
+        "b_fp": 290,
+        "fdr_b": 0.6988,
+        "fdr_a": 0.5493,
+        "rejection_rate": 0.3703,
+        "yield_b": 25
+      },
+      "CWE-617": {
+        "a_accepted": 342,
+        "b_accepted": 342,
+        "b_tp": 280,
+        "b_fp": 62,
+        "fdr_b": 0.1813,
+        "fdr_a": 0.1813,
+        "rejection_rate": 0.0,
+        "yield_b": 24
+      },
+      "CWE-670": {
+        "a_accepted": 22,
+        "b_accepted": 22,
+        "b_tp": 11,
+        "b_fp": 11,
+        "fdr_b": 0.5,
+        "fdr_a": 0.5,
+        "rejection_rate": 0.0,
+        "yield_b": 1
+      },
+      "CWE-704": {
+        "a_accepted": 30,
+        "b_accepted": 30,
+        "b_tp": 0,
+        "b_fp": 30,
+        "fdr_b": 1.0,
+        "fdr_a": 1.0,
+        "rejection_rate": 0.0,
+        "yield_b": 0
+      }
+    },
+    "by_tool": {
+      "patchagent": {
+        "a_accepted": 1661,
+        "b_accepted": 1165,
+        "fdr_a": 0.4028,
+        "fdr_b": 0.4695,
+        "yield_b": 109
+      },
+      "san2patch": {
+        "a_accepted": 819,
+        "b_accepted": 561,
+        "fdr_a": 0.4737,
+        "fdr_b": 0.4528,
+        "yield_b": 64
+      }
+    },
+    "by_model": {
+      "claude-4-sonnet": {
+        "a_accepted": 1295,
+        "b_accepted": 860,
+        "fdr_a": 0.4232,
+        "fdr_b": 0.4663,
+        "yield_b": 89
+      },
+      "gpt-4.1": {
+        "a_accepted": 1185,
+        "b_accepted": 866,
+        "fdr_a": 0.4295,
+        "fdr_b": 0.4619,
+        "yield_b": 102
+      }
+    }
+  },
+  "methodology": {
+    "checker_primary": "patch_pattern_analysis",
+    "checker_secondary": "codeql_optional",
+    "condition_b_logic": "stage1_pass AND (checker==none OR checker.pass)",
+    "pattern_checker_approach": "AST/regex pattern matching on patch diff added lines, CWE-specific fix patterns",
+    "pass_through_cwes": [
+      "CWE-617",
+      "CWE-670",
+      "CWE-704",
+      "CWE-362"
+    ],
+    "checker_coverage_note": "CWEs 476,122,121,190,416,415,369,457 have pattern checkers (~85% of vulns)"
+  }
+}

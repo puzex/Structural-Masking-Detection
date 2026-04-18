@@ -1,0 +1,80 @@
+{
+  "task": 6,
+  "title": "SMD Diagnostic Breakdown on PVBench \u2014 Optimized",
+  "diagnostic": {
+    "n_applicable": 684,
+    "n_flagged_by_smd": 85,
+    "s1_rate": 0.0424,
+    "s2_rate": 0.0,
+    "smd_flag_rate": 0.1243,
+    "s1_rate_pct": "4.2%",
+    "s2_rate_pct": "0.0%",
+    "smd_flag_rate_pct": "12.4%",
+    "smd_precision": 0.9529,
+    "smd_precision_pct": "95.3%",
+    "smd_recall": 0.202,
+    "smd_recall_pct": "20.2%",
+    "coverage_ceiling": 0.202,
+    "coverage_ceiling_pct": "20.2%",
+    "n_b_accepted_strong_oracle_fail": 401,
+    "n_caught_by_smd": 81,
+    "s2_breakdown": {
+      "sink_removed": 0,
+      "unreachable": 0
+    },
+    "signature_overlap": {
+      "only_s1": 29,
+      "only_s2": 0,
+      "both_s1_and_s2": 0
+    },
+    "sink_mapping_state_dist": {
+      "mapped": 520,
+      "removed": 108,
+      "auto_reject": 56
+    }
+  },
+  "by_cwe_diagnostic": {
+    "CWE-121": {
+      "n_applicable": 55,
+      "smd_flag_rate": 0.0182,
+      "precision": 1.0,
+      "recall": 0.0286
+    },
+    "CWE-190": {
+      "n_applicable": 266,
+      "smd_flag_rate": 0.0338,
+      "precision": 0.5556,
+      "recall": 0.0617
+    },
+    "CWE-362": {
+      "n_applicable": 17,
+      "smd_flag_rate": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "CWE-369": {
+      "n_applicable": 3,
+      "smd_flag_rate": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "CWE-457": {
+      "n_applicable": 6,
+      "smd_flag_rate": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "CWE-476": {
+      "n_applicable": 307,
+      "smd_flag_rate": 0.0619,
+      "precision": 1.0,
+      "recall": 0.083
+    },
+    "CWE-704": {
+      "n_applicable": 30,
+      "smd_flag_rate": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  }
+}

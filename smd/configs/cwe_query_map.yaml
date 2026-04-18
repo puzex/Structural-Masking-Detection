@@ -1,0 +1,1085 @@
+# CWE to CodeQL query / Semgrep rule mapping for PVBench C/C++ vulnerabilities.
+# CodeQL paths are relative to tools/codeql-repo/
+# Semgrep rules use --config=auto or rule IDs from semgrep registry.
+#
+# checker_strategy: "codeql" | "semgrep" | "none"
+# no-checker-available means pass-through (no static checker can reliably detect this CWE)
+
+CWE-476:
+  description: "NULL Pointer Dereference"
+  pvbench_count: 52
+  checker_strategy: semgrep
+  codeql_query: null
+  semgrep_rules:
+    - c.lang.security.null-pointer-deref.null-pointer-deref
+  notes: "CodeQL has no dedicated null-deref query for C/C++; use Critical/MissingNullTest.ql as supplementary"
+  codeql_supplementary: "cpp/ql/src/Critical/MissingNullTest.ql"
+
+CWE-617:
+  description: "Reachable Assertion"
+  pvbench_count: 40
+  checker_strategy: none
+  codeql_query: null
+  semgrep_rules: []
+  notes: "No reliable static checker for reachable assertions — pass-through"
+
+CWE-122:
+  description: "Heap Buffer Overflow"
+  pvbench_count: 33
+  checker_strategy: codeql
+  codeql_query: "cpp/ql/src/Security/CWE/CWE-120/OverrunWrite.ql"
+  semgrep_rules:
+    - c.lang.security.insecure-use-strcpy-fn.insecure-use-strcpy-fn
+  notes: "CWE-120 OverrunWrite covers heap buffer overflows in C/C++"
+
+CWE-416:
+  description: "Use After Free"
+  pvbench_count: 32
+  checker_strategy: codeql
+  codeql_query: "cpp/ql/src/Critical/UseAfterFree.ql"
+  semgrep_rules:
+    - c.lang.security.use-after-free.use-after-free
+  notes: "CodeQL Critical/UseAfterFree.ql is the primary checker"
+
+CWE-190:
+  description: "Integer Overflow"
+  pvbench_count: 26
+  checker_strategy: codeql
+  codeql_query: "cpp/ql/src/Security/CWE/CWE-190/ArithmeticUncontrolled.ql"
+  semgrep_rules:
+    - c.lang.security.integer-overflow.integer-overflow
+  notes: "ArithmeticUncontrolled covers integer overflow from external/uncontrolled sources"
+
+CWE-121:
+  description: "Stack Buffer Overflow"
+  pvbench_count: 13
+  checker_strategy: codeql
+  codeql_query: "cpp/ql/src/Security/CWE/CWE-120/OverrunWrite.ql"
+  semgrep_rules:
+    - c.lang.security.insecure-use-strcpy-fn.insecure-use-strcpy-fn
+  notes: "CWE-120 OverrunWrite covers stack buffer overflows"
+
+CWE-415:
+  description: "Double Free"
+  pvbench_count: 3
+  checker_strategy: codeql
+  codeql_query: "cpp/ql/src/Critical/DoubleFree.ql"
+  semgrep_rules:
+    - c.lang.security.double-free.double-free
+  notes: "CodeQL Critical/DoubleFree.ql; falls back to semgrep"
+
+CWE-669:
+  description: "Incorrect Resource Transfer Between Spheres (misc)"
+  pvbench_count: 0
+  checker_strategy: none
+  codeql_query: null
+  semgrep_rules: []
+  notes: "Not present in PVBench; placeholder"
+
+CWE-670:
+  description: "Always-Incorrect Control Flow Implementation"
+  pvbench_count: 3
+  checker_strategy: none
+  codeql_query: null
+  semgrep_rules: []
+  notes: "No reliable static checker — pass-through"
+
+CWE-704:
+  description: "Incorrect Type Conversion or Cast"
+  pvbench_count: 3
+  checker_strategy: none
+  codeql_query: null
+  semgrep_rules: []
+  notes: "No reliable static checker for type cast bugs — pass-through"
+
+CWE-362:
+  description: "Race Condition"
+  pvbench_count: 1
+  checker_strategy: none
+  codeql_query: null
+  semgrep_rules: []
+  notes: "Race conditions require dynamic analysis — pass-through"
+
+CWE-369:
+  description: "Divide by Zero"
+  pvbench_count: 1
+  checker_strategy: semgrep
+  codeql_query: null
+  semgrep_rules:
+    - c.lang.correctness.divide-by-zero.divide-by-zero
+  notes: "Semgrep can detect some literal divide-by-zero patterns"
+
+CWE-457:
+  description: "Use of Uninitialized Variable"
+  pvbench_count: 1
+  checker_strategy: codeql
+  codeql_query: "cpp/ql/src/Critical/NotInitialised.ql"
+  semgrep_rules: []
+  notes: "CodeQL Critical/NotInitialised.ql; requires DB build"
+
+# ---- PatchEval CWEs: Python / JavaScript / Go ----
+# CodeQL query paths are relative to tools/codeql-repo/
+# checker_strategy: "codeql" means use CodeQL DB + query (primary)
+#                   "semgrep" means use Semgrep rules (no CodeQL query available for this CWE/language)
+#                   "none" means pass-through (no reliable static checker)
+# Per-language overrides are in codeql_queries / semgrep_rules maps keyed by language code.
+
+CWE-94:
+  description: "Code Injection"
+  patcheval_count: 142
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-094/CodeInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-094/CodeInjection.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Primary for Python/JS; Go falls back to Semgrep p/golang"
+  languages: [python, javascript, go]
+
+CWE-73:
+  description: "External Control of File Name or Path"
+  patcheval_count: 137
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-022/PathInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-022/TaintedPath.ql"
+    go: "go/ql/src/Security/CWE-022/TaintedPath.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-73 is often treated as CWE-22 (path traversal) in practice; use TaintedPath queries"
+  languages: [python, javascript, go]
+
+CWE-601:
+  description: "URL Redirection to Untrusted Site (Open Redirect)"
+  patcheval_count: 68
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-601/UrlRedirect.ql"
+    javascript: "javascript/ql/src/Security/CWE-601/ServerSideUrlRedirect.ql"
+    go: "go/ql/src/Security/CWE-601/OpenUrlRedirect.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "All three languages have CodeQL URL redirect queries"
+  languages: [python, javascript, go]
+
+CWE-89:
+  description: "SQL Injection"
+  patcheval_count: 54
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-089/SqlInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-089/SqlInjection.ql"
+    go: "go/ql/src/Security/CWE-089/SqlInjection.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Strong taint-tracking SQL injection queries for all three languages"
+  languages: [python, javascript, go]
+
+CWE-918:
+  description: "Server-Side Request Forgery (SSRF)"
+  patcheval_count: 52
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-918/FullServerSideRequestForgery.ql"
+    javascript: "javascript/ql/src/Security/CWE-918/RequestForgery.ql"
+    go: "go/ql/src/Security/CWE-918/RequestForgery.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "All three languages have SSRF queries"
+  languages: [python, javascript, go]
+
+CWE-22:
+  description: "Path Traversal"
+  patcheval_count: 52
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-022/PathInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-022/TaintedPath.ql"
+    go: "go/ql/src/Security/CWE-022/TaintedPath.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Path traversal taint queries available for all three languages"
+  languages: [python, javascript, go]
+
+CWE-285:
+  description: "Improper Authorization"
+  patcheval_count: 48
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-285/PamAuthorization.ql"
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Python has PAM auth query; JS/Go fall back to Semgrep p/owasp-top-ten"
+  languages: [python, javascript, go]
+
+CWE-20:
+  description: "Improper Input Validation"
+  patcheval_count: 46
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-020/IncompleteHostnameRegExp.ql"
+    javascript: "javascript/ql/src/Security/CWE-020/IncompleteHostnameRegExp.ql"
+    go: "go/ql/src/Security/CWE-020/IncompleteHostnameRegexp.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Use IncompleteHostnameRegExp as representative query; broad validation issues also covered by semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-862:
+  description: "Missing Authorization"
+  patcheval_count: 44
+  checker_strategy: codeql
+  codeql_queries:
+    python: null
+    javascript: "javascript/ql/src/Security/CWE-862/EmptyPasswordInConfigurationFile.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Limited CodeQL coverage; primary fallback to Semgrep p/owasp-top-ten"
+  languages: [python, javascript, go]
+
+CWE-287:
+  description: "Improper Authentication"
+  patcheval_count: 35
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No CodeQL query for generic improper authentication; use Semgrep"
+  languages: [python, javascript, go]
+
+CWE-200:
+  description: "Exposure of Sensitive Information"
+  patcheval_count: 27
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-209/StackTraceExposure.ql"
+    javascript: "javascript/ql/src/Security/CWE-200/FileAccessToHttp.ql"
+    go: "go/ql/src/Security/CWE-209/StackTraceExposure.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Use CWE-209 stack trace / file exposure queries as proxies"
+  languages: [python, javascript, go]
+
+CWE-863:
+  description: "Incorrect Authorization"
+  patcheval_count: 22
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-74:
+  description: "Improper Neutralization of Special Elements in Output (Injection)"
+  patcheval_count: 21
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-074/TemplateInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-073/TemplateObjectInjection.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-74 subclasses include template injection"
+  languages: [python, javascript, go]
+
+CWE-284:
+  description: "Improper Access Control"
+  patcheval_count: 16
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-269:
+  description: "Improper Privilege Management"
+  patcheval_count: 15
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-78:
+  description: "OS Command Injection"
+  patcheval_count: 14
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-078/CommandInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-078/CommandInjection.ql"
+    go: "go/ql/src/Security/CWE-078/CommandInjection.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Strong taint-tracking command injection queries for all three languages"
+  languages: [python, javascript, go]
+
+CWE-116:
+  description: "Improper Encoding or Escaping of Output"
+  patcheval_count: 13
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-116/BadTagFilter.ql"
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Python BadTagFilter query; JS/Go use Semgrep"
+  languages: [python, javascript, go]
+
+CWE-59:
+  description: "Improper Link Resolution Before File Access (Link Following)"
+  patcheval_count: 13
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-022/PathInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-022/TaintedPath.ql"
+    go: "go/ql/src/Security/CWE-022/TaintedPath.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-59 is link/symlink following — reuse path traversal queries"
+  languages: [python, javascript, go]
+
+CWE-532:
+  description: "Insertion of Sensitive Information into Log File"
+  patcheval_count: 12
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-312/CleartextLogging.ql"
+    javascript: "javascript/ql/src/Security/CWE-312/CleartextLogging.ql"
+    go: "go/ql/src/Security/CWE-312/CleartextLogging.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-532 is sensitive info in logs — use CWE-312 CleartextLogging queries"
+  languages: [python, javascript, go]
+
+CWE-77:
+  description: "Command Injection (Improper Neutralization)"
+  patcheval_count: 11
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-078/CommandInjection.ql"
+    javascript: "javascript/ql/src/Security/CWE-078/CommandInjection.ql"
+    go: "go/ql/src/Security/CWE-078/CommandInjection.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-77 is parent of CWE-78; use same command injection queries"
+  languages: [python, javascript, go]
+
+CWE-613:
+  description: "Insufficient Session Expiration"
+  patcheval_count: 9
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No CodeQL query for session expiration; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-522:
+  description: "Insufficiently Protected Credentials"
+  patcheval_count: 7
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-312/CleartextStorage.ql"
+    javascript: "javascript/ql/src/Security/CWE-312/CleartextStorage.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Credentials in cleartext; use CWE-312 CleartextStorage queries"
+  languages: [python, javascript, go]
+
+CWE-732:
+  description: "Incorrect Permission Assignment for Critical Resource"
+  patcheval_count: 7
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-732/WeakFilePermissions.ql"
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Python has WeakFilePermissions query; JS/Go use Semgrep"
+  languages: [python, javascript, go]
+
+CWE-434:
+  description: "Unrestricted Upload of File with Dangerous Type"
+  patcheval_count: 7
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-502:
+  description: "Deserialization of Untrusted Data"
+  patcheval_count: 6
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-502/UnsafeDeserialization.ql"
+    javascript: "javascript/ql/src/Security/CWE-502/UnsafeDeserialization.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Python and JS have CodeQL deserialization queries; Go uses Semgrep"
+  languages: [python, javascript, go]
+
+CWE-88:
+  description: "Improper Neutralization of Argument Delimiters in a Command (Argument Injection)"
+  patcheval_count: 6
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-078/UnsafeShellCommandConstruction.ql"
+    javascript: "javascript/ql/src/Security/CWE-078/UnsafeShellCommandConstruction.ql"
+    go: "go/ql/src/Security/CWE-078/CommandInjection.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-88 is argument injection — reuse shell command construction queries"
+  languages: [python, javascript, go]
+
+CWE-276:
+  description: "Incorrect Default Permissions"
+  patcheval_count: 6
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-732/WeakFilePermissions.ql"
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-276 relates to CWE-732 permissions; use WeakFilePermissions"
+  languages: [python, javascript, go]
+
+CWE-668:
+  description: "Exposure of Resource to Wrong Sphere"
+  patcheval_count: 6
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-444:
+  description: "Inconsistent Interpretation of HTTP Requests (HTTP Request/Response Smuggling)"
+  patcheval_count: 6
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query for HTTP smuggling; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-639:
+  description: "Authorization Bypass Through User-Controlled Key"
+  patcheval_count: 6
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-352:
+  description: "Cross-Site Request Forgery (CSRF)"
+  patcheval_count: 5
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-352/CSRFProtectionDisabled.ql"
+    javascript: "javascript/ql/src/Security/CWE-352/MissingCsrfMiddleware.ql"
+    go: "go/ql/src/Security/CWE-352/ConstantOauth2State.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CSRF protection queries available for all three languages"
+  languages: [python, javascript, go]
+
+CWE-312:
+  description: "Cleartext Storage of Sensitive Information"
+  patcheval_count: 5
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-312/CleartextStorage.ql"
+    javascript: "javascript/ql/src/Security/CWE-312/CleartextStorage.ql"
+    go: "go/ql/src/Security/CWE-312/CleartextLogging.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Cleartext storage/logging queries available for all languages"
+  languages: [python, javascript, go]
+
+CWE-295:
+  description: "Improper Certificate Validation"
+  patcheval_count: 4
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-295/RequestWithoutValidation.ql"
+    javascript: "javascript/ql/src/Security/CWE-295/DisablingCertificateValidation.ql"
+    go: "go/ql/src/Security/CWE-295/DisabledCertificateCheck.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Certificate validation queries available for all three languages"
+  languages: [python, javascript, go]
+
+CWE-384:
+  description: "Session Fixation"
+  patcheval_count: 4
+  checker_strategy: codeql
+  codeql_queries:
+    python: null
+    javascript: "javascript/ql/src/Security/CWE-384/SessionFixation.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "JS has session fixation query; Python/Go use Semgrep"
+  languages: [python, javascript, go]
+
+CWE-345:
+  description: "Insufficient Verification of Data Authenticity"
+  patcheval_count: 4
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-327:
+  description: "Use of a Broken or Risky Cryptographic Algorithm"
+  patcheval_count: 4
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql"
+    javascript: "javascript/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql"
+    go: "go/ql/src/Security/CWE-327/BrokenCryptoAlgorithm.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Broken crypto queries available for all three languages"
+  languages: [python, javascript, go]
+
+CWE-79:
+  description: "Cross-site Scripting (XSS)"
+  patcheval_count: 4
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-079/ReflectedXss.ql"
+    javascript: "javascript/ql/src/Security/CWE-079/Xss.ql"
+    go: "go/ql/src/Security/CWE-079/ReflectedXss.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "XSS queries available for all three languages"
+  languages: [python, javascript, go]
+
+CWE-306:
+  description: "Missing Authentication for Critical Function"
+  patcheval_count: 4
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-347:
+  description: "Improper Verification of Cryptographic Signature"
+  patcheval_count: 4
+  checker_strategy: codeql
+  codeql_queries:
+    python: null
+    javascript: "javascript/ql/src/Security/CWE-347/MissingJWTKeyVerification.ql"
+    go: "go/ql/src/Security/CWE-347/MissingJwtSignatureCheck.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "JS and Go have JWT signature verification queries"
+  languages: [python, javascript, go]
+
+CWE-755:
+  description: "Improper Handling of Exceptional Conditions"
+  patcheval_count: 3
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker; pass-through"
+  languages: [python, javascript, go]
+
+CWE-400:
+  description: "Uncontrolled Resource Consumption (Resource Exhaustion)"
+  patcheval_count: 3
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-730/PolynomialReDoS.ql"
+    javascript: "javascript/ql/src/Security/CWE-400/DeepObjectResourceExhaustion.ql"
+    go: "go/ql/src/Security/CWE-770/UncontrolledAllocationSize.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "ReDoS (CWE-730) and resource exhaustion are subtypes; use available proxies"
+  languages: [python, javascript, go]
+
+CWE-1333:
+  description: "Inefficient Regular Expression Complexity (ReDoS)"
+  patcheval_count: 3
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-730/PolynomialReDoS.ql"
+    javascript: "javascript/ql/src/Security/CWE-730/RegExpInjection.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "ReDoS polynomial complexity queries for Python and JS"
+  languages: [python, javascript, go]
+
+CWE-611:
+  description: "Improper Restriction of XML External Entity Reference (XXE)"
+  patcheval_count: 3
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-611/Xxe.ql"
+    javascript: "javascript/ql/src/Security/CWE-611/Xxe.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "XXE queries for Python and JS; Go uses Semgrep"
+  languages: [python, javascript, go]
+
+CWE-835:
+  description: "Loop with Unreachable Exit Condition (Infinite Loop)"
+  patcheval_count: 3
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker for infinite loops; pass-through"
+  languages: [python, javascript, go]
+
+CWE-362:
+  description: "Race Condition (concurrent access)"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_query: null
+  semgrep_rules: []
+  notes: "Race conditions require dynamic analysis — pass-through"
+  languages: [python, javascript, go]
+
+CWE-203:
+  description: "Observable Discrepancy (Timing Side-Channel)"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "Timing side-channels require dynamic analysis; pass-through"
+  languages: [python, javascript, go]
+
+CWE-787:
+  description: "Out-of-bounds Write"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "Memory safety issues rare in Python/JS/Go; pass-through"
+  languages: [python, javascript, go]
+
+CWE-346:
+  description: "Origin Validation Error"
+  patcheval_count: 2
+  checker_strategy: codeql
+  codeql_queries:
+    python: null
+    javascript: "javascript/ql/src/Security/CWE-346/CorsMisconfigurationForCredentials.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "JS CORS misconfiguration query; Python/Go use Semgrep"
+  languages: [python, javascript, go]
+
+CWE-610:
+  description: "Externally Controlled Reference to a Resource"
+  patcheval_count: 2
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-918/FullServerSideRequestForgery.ql"
+    javascript: "javascript/ql/src/Security/CWE-918/RequestForgery.ql"
+    go: "go/ql/src/Security/CWE-918/RequestForgery.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "CWE-610 is a parent of SSRF; use SSRF queries as proxy"
+  languages: [python, javascript, go]
+
+CWE-307:
+  description: "Improper Restriction of Excessive Authentication Attempts"
+  patcheval_count: 2
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-476:
+  description: "NULL Pointer Dereference"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "Rare in Python/JS; Go may have nil dereference but no dedicated CodeQL query; pass-through"
+  languages: [python, javascript, go]
+
+CWE-674:
+  description: "Uncontrolled Recursion"
+  patcheval_count: 2
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-125:
+  description: "Out-of-bounds Read"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "Memory safety rare in managed languages; pass-through"
+  languages: [python, javascript, go]
+
+CWE-697:
+  description: "Incorrect Comparison"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker for incorrect comparison; pass-through"
+  languages: [python, javascript, go]
+
+CWE-754:
+  description: "Improper Check for Unusual or Exceptional Conditions"
+  patcheval_count: 2
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker; pass-through"
+  languages: [python, javascript, go]
+
+CWE-209:
+  description: "Generation of Error Message Containing Sensitive Information"
+  patcheval_count: 2
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-209/StackTraceExposure.ql"
+    javascript: "javascript/ql/src/Security/CWE-209/StackTraceExposure.ql"
+    go: "go/ql/src/Security/CWE-209/StackTraceExposure.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Stack trace exposure queries for all three languages"
+  languages: [python, javascript, go]
+
+CWE-521:
+  description: "Weak Password Requirements"
+  patcheval_count: 1
+  checker_strategy: semgrep
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "No dedicated CodeQL query; Semgrep fallback"
+  languages: [python, javascript, go]
+
+CWE-416:
+  description: "Use After Free (managed-language occurrence)"
+  patcheval_count: 1
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "UAF not applicable to Python/JS; Go GC prevents UAF; pass-through"
+  languages: [python, javascript, go]
+
+CWE-119:
+  description: "Improper Restriction of Operations within Memory Bounds"
+  patcheval_count: 1
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "Memory safety rare in managed languages; pass-through"
+  languages: [python, javascript, go]
+
+CWE-326:
+  description: "Inadequate Encryption Strength"
+  patcheval_count: 1
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-326/WeakCryptoKey.ql"
+    javascript: "javascript/ql/src/Security/CWE-326/InsufficientKeySize.ql"
+    go: "go/ql/src/Security/CWE-326/InsufficientKeySize.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Weak crypto key size queries available for all three languages"
+  languages: [python, javascript, go]
+
+CWE-843:
+  description: "Access of Resource Using Incompatible Type (Type Confusion)"
+  patcheval_count: 1
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker for type confusion; pass-through"
+  languages: [python, javascript, go]
+
+CWE-1284:
+  description: "Improper Validation of Specified Quantity in Input"
+  patcheval_count: 1
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker; pass-through"
+  languages: [python, javascript, go]
+
+CWE-1321:
+  description: "Improperly Controlled Modification of Object Prototype Attributes (Prototype Pollution)"
+  patcheval_count: 1
+  checker_strategy: codeql
+  codeql_queries:
+    python: null
+    javascript: "javascript/ql/src/Security/CWE-915/PrototypePollutingAssignment.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "JS prototype pollution query; Python/Go use Semgrep"
+  languages: [python, javascript, go]
+
+CWE-770:
+  description: "Allocation of Resources Without Limits or Throttling"
+  patcheval_count: 1
+  checker_strategy: codeql
+  codeql_queries:
+    python: null
+    javascript: "javascript/ql/src/Security/CWE-770/MissingRateLimiting.ql"
+    go: "go/ql/src/Security/CWE-770/UncontrolledAllocationSize.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Rate limiting / allocation queries for JS and Go"
+  languages: [python, javascript, go]
+
+CWE-471:
+  description: "Modification of Assumed-Immutable Data (MAID)"
+  patcheval_count: 1
+  checker_strategy: none
+  codeql_queries:
+    python: null
+    javascript: null
+    go: null
+  semgrep_rules: {}
+  notes: "No reliable static checker; pass-through"
+  languages: [python, javascript, go]
+
+CWE-359:
+  description: "Exposure of Private Personal Information to an Unauthorized Actor"
+  patcheval_count: 1
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-312/CleartextStorage.ql"
+    javascript: "javascript/ql/src/Security/CWE-312/CleartextStorage.ql"
+    go: null
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Privacy exposure is related to cleartext storage; use as proxy"
+  languages: [python, javascript, go]
+
+CWE-798:
+  description: "Use of Hard-coded Credentials"
+  patcheval_count: 1
+  checker_strategy: codeql
+  codeql_queries:
+    python: "python/ql/src/Security/CWE-798/HardcodedCredentials.ql"
+    javascript: "javascript/ql/src/Security/CWE-798/HardcodedCredentials.ql"
+    go: "go/ql/src/Security/CWE-798/HardcodedCredentials.ql"
+  semgrep_rules:
+    python: "p/python"
+    javascript: "p/javascript"
+    go: "p/golang"
+  notes: "Hardcoded credentials queries available for all three languages"
+  languages: [python, javascript, go]

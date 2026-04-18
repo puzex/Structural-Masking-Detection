@@ -1,0 +1,291 @@
+{
+  "condition_a_metrics": {
+    "condition": "A",
+    "total_attempts": 4160,
+    "total_vulns": 208,
+    "accepted_count": 2480,
+    "tp_count": 1423,
+    "fp_count": 1057,
+    "fdr": 0.4262,
+    "yield_count": 131,
+    "strong_oracle_pass_rate": 0.3421,
+    "by_tool": {
+      "patchagent": {
+        "accepted": 1661,
+        "tp": 992,
+        "fp": 669,
+        "fdr": 0.4028,
+        "yield": 128
+      },
+      "san2patch": {
+        "accepted": 819,
+        "tp": 431,
+        "fp": 388,
+        "fdr": 0.4737,
+        "yield": 83
+      }
+    },
+    "by_model": {
+      "claude-4-sonnet": {
+        "accepted": 1295,
+        "tp": 747,
+        "fp": 548,
+        "fdr": 0.4232,
+        "yield": 120
+      },
+      "gpt-4.1": {
+        "accepted": 1185,
+        "tp": 676,
+        "fp": 509,
+        "fdr": 0.4295,
+        "yield": 115
+      }
+    },
+    "by_cwe": {
+      "CWE-121": {
+        "accepted": 182,
+        "tp": 74,
+        "fp": 108,
+        "fdr": 0.5934,
+        "yield": 8
+      },
+      "CWE-122": {
+        "accepted": 408,
+        "tp": 218,
+        "fp": 190,
+        "fdr": 0.4657,
+        "yield": 23
+      },
+      "CWE-190": {
+        "accepted": 435,
+        "tp": 287,
+        "fp": 148,
+        "fdr": 0.3402,
+        "yield": 22
+      },
+      "CWE-362": {
+        "accepted": 17,
+        "tp": 0,
+        "fp": 17,
+        "fdr": 1.0,
+        "yield": 0
+      },
+      "CWE-369": {
+        "accepted": 20,
+        "tp": 11,
+        "fp": 9,
+        "fdr": 0.45,
+        "yield": 1
+      },
+      "CWE-415": {
+        "accepted": 27,
+        "tp": 22,
+        "fp": 5,
+        "fdr": 0.1852,
+        "yield": 2
+      },
+      "CWE-416": {
+        "accepted": 328,
+        "tp": 223,
+        "fp": 105,
+        "fdr": 0.3201,
+        "yield": 21
+      },
+      "CWE-457": {
+        "accepted": 10,
+        "tp": 0,
+        "fp": 10,
+        "fdr": 1.0,
+        "yield": 0
+      },
+      "CWE-476": {
+        "accepted": 659,
+        "tp": 297,
+        "fp": 362,
+        "fdr": 0.5493,
+        "yield": 29
+      },
+      "CWE-617": {
+        "accepted": 342,
+        "tp": 280,
+        "fp": 62,
+        "fdr": 0.1813,
+        "yield": 24
+      },
+      "CWE-670": {
+        "accepted": 22,
+        "tp": 11,
+        "fp": 11,
+        "fdr": 0.5,
+        "yield": 1
+      },
+      "CWE-704": {
+        "accepted": 30,
+        "tp": 0,
+        "fp": 30,
+        "fdr": 1.0,
+        "yield": 0
+      }
+    }
+  },
+  "cwe_catalog": [
+    {
+      "cwe": "CWE-476",
+      "type": "NULL Pointer Dereference",
+      "vuln_count": 52,
+      "vcg_feasible_count": 52,
+      "projects": [
+        "cpython",
+        "exiv2",
+        "hdf5",
+        "jasper",
+        "libtiff",
+        "libxml2",
+        "llvm-project",
+        "pcapplusplus",
+        "php",
+        "quickjs",
+        "wabt",
+        "wireshark"
+      ]
+    },
+    {
+      "cwe": "CWE-617",
+      "type": "Reachable Assertion",
+      "vuln_count": 40,
+      "vcg_feasible_count": 40,
+      "projects": [
+        "llvm-project",
+        "php",
+        "v8"
+      ]
+    },
+    {
+      "cwe": "CWE-122",
+      "type": "Heap Buffer Overflow",
+      "vuln_count": 33,
+      "vcg_feasible_count": 33,
+      "projects": [
+        "cpython",
+        "exiv2",
+        "hdf5",
+        "htslib",
+        "jq",
+        "libxml2",
+        "llvm-project",
+        "mruby",
+        "php",
+        "quickjs",
+        "v8",
+        "vim",
+        "wabt"
+      ]
+    },
+    {
+      "cwe": "CWE-416",
+      "type": "Use After Free",
+      "vuln_count": 32,
+      "vcg_feasible_count": 32,
+      "projects": [
+        "cpython",
+        "libxml2",
+        "pcapplusplus",
+        "php"
+      ]
+    },
+    {
+      "cwe": "CWE-190",
+      "type": "Integer Overflow",
+      "vuln_count": 26,
+      "vcg_feasible_count": 26,
+      "projects": [
+        "cpython",
+        "exiv2",
+        "icu",
+        "libxml2",
+        "llvm-project",
+        "mruby",
+        "php",
+        "wabt"
+      ]
+    },
+    {
+      "cwe": "CWE-121",
+      "type": "Stack Buffer Overflow",
+      "vuln_count": 13,
+      "vcg_feasible_count": 13,
+      "projects": [
+        "hermes",
+        "icu",
+        "jq",
+        "libxml2",
+        "llvm-project",
+        "pcapplusplus",
+        "v8"
+      ]
+    },
+    {
+      "cwe": "CWE-415",
+      "type": "Double Free",
+      "vuln_count": 3,
+      "vcg_feasible_count": 3,
+      "projects": [
+        "hdf5",
+        "php",
+        "vim"
+      ]
+    },
+    {
+      "cwe": "CWE-670",
+      "type": "Always-Incorrect Control Flow",
+      "vuln_count": 3,
+      "vcg_feasible_count": 3,
+      "projects": [
+        "llvm-project",
+        "v8"
+      ]
+    },
+    {
+      "cwe": "CWE-704",
+      "type": "Incorrect Type Conversion or Cast",
+      "vuln_count": 3,
+      "vcg_feasible_count": 3,
+      "projects": [
+        "libxml2",
+        "php"
+      ]
+    },
+    {
+      "cwe": "CWE-362",
+      "type": "Race Condition",
+      "vuln_count": 1,
+      "vcg_feasible_count": 1,
+      "projects": [
+        "cpython"
+      ]
+    },
+    {
+      "cwe": "CWE-369",
+      "type": "Divide by Zero",
+      "vuln_count": 1,
+      "vcg_feasible_count": 1,
+      "projects": [
+        "cpython"
+      ]
+    },
+    {
+      "cwe": "CWE-457",
+      "type": "Use of Uninitialized Variable",
+      "vuln_count": 1,
+      "vcg_feasible_count": 1,
+      "projects": [
+        "php"
+      ]
+    }
+  ],
+  "raw_counts": {
+    "total_records": 4160,
+    "unique_vulns_in_eval": 208,
+    "total_vulns_in_benchmark": 209
+  }
+}

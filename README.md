@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Structural Masking Detection for Reference-Free Validation of LLM-Generated Security Patches
 
 ## Project Overview

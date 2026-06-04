@@ -1,4 +1,4 @@
-# Structural Masking Detection for Reference-Free Validation of LLM-Generated Security Patches
+# A COST-AWARE TIERED PIPELINE FOR REFERENCE-FREE VALIDATION OF LLM-GENERATED SECURITY PATCHES
 
 ## Project Overview
 
